@@ -6,12 +6,12 @@ pragma solidity ^0.8.9;
 
 contract BuyMeACoffee {
     // Event to emit when a memo is created
-    event NewMemo {
+    event NewMemo (
         address indexed from,
         uint256 timestamp,
         string name,
         string message
-    }
+    );
 
     // memo struct
     struct Memo {
@@ -55,12 +55,12 @@ contract BuyMeACoffee {
             _name,
             _message
         );
-    };
+    }
 
     /*
     * @dev send the entire balance stored in this contract to the owner
     */
-    fucntion withdrawTips() public {
+    function withdrawTips() public {
         require(owner.send(address(this).balance));
     }
 
